@@ -9,8 +9,10 @@ key =  st.secrets["API_KEY"]
 
 st.title("Hello")
 
-forecast = get(
+json_data = get(
     f"https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09?apiKey={key}").json()
+st.write(json_data)
+
 
 # Hello'https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09?apiKey=c4NLm5QgWNWDBWp530A_Ypnxc6PHmmtD
 # aggs = []
