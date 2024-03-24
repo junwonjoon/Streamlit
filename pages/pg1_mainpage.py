@@ -16,14 +16,3 @@ to_date = str(today_date.strftime('%Y-%m-%d'))
 json_data = get(f"https://api.polygon.io/v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from_date}/{to_date}?apiKey={key}").json()
 st.write(json_data)
 
-# Preparing the data for visualization
-# dates = [datetime.fromtimestamp(item["t"] / 1000).date() for item in json_data["results"]]
-# closing_prices = [item["c"] for item in json_data["results"]]
-# # Creating a dictionary for Streamlit chart
-# chart_data = {'Date': dates, 'Closing Price': closing_prices}
-
-# # Converting dictionary to Streamlit compatible format (columns with same length)
-# df_for_chart = st.dataframe(chart_data)
-
-# # Displaying the line chart in Streamlit
-# st.line_chart(df_for_chart)
