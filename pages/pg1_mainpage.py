@@ -1,13 +1,16 @@
 import streamlit as st
-# import os
-# from polygon import RESTClient
-# from requests import get
+from requests import get
+
 
 # secret_value = os.getenv('MY_SECRET')
 
 # print(secret_value)
+key =  st.secrets["API_KEY"]
 
 st.title("Hello")
+
+forecast = get(
+    f"https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09?apiKey={key}").json()
 
 # Hello'https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09?apiKey=c4NLm5QgWNWDBWp530A_Ypnxc6PHmmtD
 # aggs = []
