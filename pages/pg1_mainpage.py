@@ -6,7 +6,7 @@ key = st.secrets["API_KEY"]
 st.title("Hello")
 today_date = datetime.datetime.now()
 
-stocksTicker = "APPL"
+stocksTicker = "AAPL"
 multiplier = 1
 timespan = "week"
 from_date = "2024-01-01"
