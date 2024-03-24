@@ -1,12 +1,16 @@
 import streamlit as st
 from requests import get
+import datetime
 
-
-key =  st.secrets["API_KEY"]
-
+key = st.secrets["API_KEY"]
 st.title("Hello")
+today_date = datetime.datetime.now()
 
-st.number_input(label, min_value=None, max_value=None, value="min", step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, placeholder=None, disabled=False, label_visibility="visible")
+stocksTicker = "APPL"
+multiplier = 1
+timespan = "week"
+from_date = "2024-01-01"
+to_date = today_date.strftime('%Y-%m-%d')
 
 json_data = get(
     f"https://api.polygon.io/v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from_date
