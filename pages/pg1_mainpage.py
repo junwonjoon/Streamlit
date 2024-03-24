@@ -1,8 +1,6 @@
 import streamlit as st
 from requests import get
 import datetime
-import pandas as pd
-import plotly.express as px
 import json
 
 key = st.secrets["API_KEY"]
@@ -16,15 +14,15 @@ from_date = "2024-01-01"
 to_date = str(today_date.strftime('%Y-%m-%d'))
 
 json_data = get(f"https://api.polygon.io/v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from_date}/{to_date}?apiKey={key}").json()
-st.write(json_data)
+# Preparing the data for visualization
+dates = [datetime.fromtimestamp(item["t"] / 1000).date() for item in json_data["results"]]
+closing_prices = [item["c"] for item in json_data["results"]]
 
-df = pd.DataFrame(json_data['results'])
+# Creating a dictionary for Streamlit chart
+chart_data = {'Date': dates, 'Closing Price': closing_prices}
 
-# Convert timestamps to readable dates
-df['date'] = pd.to_datetime(df['t'], unit='ms')
+# Converting dictionary to Streamlit compatible format (columns with same length)
+df_for_chart = st.dataframe(chart_data)
 
-# Plot using Plotly
-fig = px.line(df, x='date', y='c', title=f"Closing Prices Over Time for {json_data['ticker']}")
-
-# Display the chart in Streamlit
-st.plotly_chart(fig)
+# Displaying the line chart in Streamlit
+st.line_chart(df_for_chart)
