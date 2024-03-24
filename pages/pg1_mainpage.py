@@ -2,28 +2,13 @@ import streamlit as st
 from requests import get
 
 
-# secret_value = os.getenv('MY_SECRET')
-
-# print(secret_value)
 key =  st.secrets["API_KEY"]
 
 st.title("Hello")
 
+st.number_input(label, min_value=None, max_value=None, value="min", step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, placeholder=None, disabled=False, label_visibility="visible")
+
 json_data = get(
-    f"https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09?apiKey={key}").json()
+    f"https://api.polygon.io/v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from_date
+}/{to_date}?apiKey={key}").json()
 st.write(json_data)
-
-
-# Hello'https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09?apiKey=c4NLm5QgWNWDBWp530A_Ypnxc6PHmmtD
-# aggs = []
-# for a in client.list_aggs(
-#     "AAPL",
-#     1,
-#     "minute",
-#     "2022-01-01",
-#     "2023-02-03",
-#     limit=50000,
-# ):
-#     aggs.append(a)
-
-# print(aggs)
