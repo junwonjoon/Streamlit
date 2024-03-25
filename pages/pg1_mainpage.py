@@ -20,16 +20,18 @@ stocksTicker_select = st.radio(
     "What stock price do you want to see?",
     [key for key in dict_stocksTicker.keys()])
 
-#Due to the limitation of free API, I can only request infomration that is 
-start_date_select = st.date_input("When should be the start date?", datetime.date(2024, 1, 1), 
-                                  min_value= datetime.datetime.now() - datetime.timedelta(days=730),
-                                  max_value= datetime.datetime.now() - datetime.timedelta(days=1))
-st.write("The start date is", start_date_select)
-
 end_date_select = st.date_input("When should be the end date?", 
                                 datetime.datetime.now() - datetime.timedelta(days=1), 
                                 max_value= datetime.datetime.now() - datetime.timedelta(days=1))
 st.write("The end date is", end_date_select)
+
+#Due to the limitation of free API, I can only request information within 2years
+start_date_select = st.date_input("When should be the start date?", datetime.date(2024, 1, 1), 
+                                  min_value= datetime.datetime.now() - datetime.timedelta(days=730),
+                                  max_value= end_date_select)
+st.write("The start date is", start_date_select)
+
+
 
 timespan_select = st.select_slider(
     'Select the timespan',
