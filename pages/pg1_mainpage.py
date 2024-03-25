@@ -52,8 +52,7 @@ if st.button("Continue", type="primary"):
         # st.write(json_data)
         st.write(element["vw"] for element in json_data["results"])
         the_date_miliseconds = [element["vw"] for element in json_data["results"]]
-        human_readable_dates = [datetime.datetime.fromtimestamp(element / 1000).strftime('%Y-%m-%d %H:%M:%S') for element in the_date_miliseconds]
-        st.write(items for items in human_readable_dates)
+        st.write(the_date_miliseconds)
 
 
 
