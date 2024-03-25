@@ -3,7 +3,7 @@ from requests import get
 import datetime
 
 
-st.title("Welcome to the stock price displayer")
+st.title("Stock Price!")
 dict_stocksTicker ={"Apple Inc.": "AAPL",
                     "Microsoft Corporation": "MSFT",
                     "Amazon.com, Inc.": "AMZN",
@@ -34,12 +34,15 @@ timespan_select = st.select_slider(
 st.write('You selected timespan as ', timespan_select)
 
 
+timespan_multiplier_select = st.number_input('Enter the timespan multiplier', 1, step = 1)
+st.write('Timespan multiplier is:', timespan_multiplier_select)
+
 if st.button("Continue", type="primary"):
     stocksTicker = dict_stocksTicker[genre]
     multiplier = 1
-    timespan = "week"
-    from_date = "2024-01-01"
-    to_date = str(today_date.strftime('%Y-%m-%d'))
+    timespan = timespan_select
+    from_date = start_date_select
+    to_date = end_date_select
 
     json_data = get(f"https://api.polygon.io/v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from_date}/{to_date}?apiKey={key}").json()
     if json_data["status"] is not "ERROR":
