@@ -24,14 +24,14 @@ genre = st.radio(
 start_date_select = st.date_input("When should be the start date?", datetime.date(2024, 1, 1))
 st.write("The start date is", start_date_select)
 
-end_date_select = st.date_input("When should be the end date?", datetime.datetime.now())
+end_date_select = st.date_input("When should be the end date?", datetime.datetime.now() - 1)
 st.write("The end date is", end_date_select)
 
 
 timespan_select = st.select_slider(
     'Select the timespan',
     options=['second', 'minute', 'hour', 'day', 'week', 'month', 'quarter', 'year'])
-st.write('My favorite color is', timespan_select)
+st.write('You selected timespan as ', timespan_select)
 
 if st.button("Continue", type="primary"):
     stocksTicker = dict_stocksTicker[genre]
