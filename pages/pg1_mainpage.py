@@ -27,7 +27,7 @@ genre = st.radio(
 st.write("You selected:", genre)
 
 if st.button("Continue", type="primary"):
-    stocksTicker = "AAPL"
+    stocksTicker = dict_stocksTicker["genre"]
     multiplier = 1
     timespan = "week"
     from_date = "2024-01-01"
