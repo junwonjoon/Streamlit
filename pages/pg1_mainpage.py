@@ -51,7 +51,7 @@ if st.button("Continue", type="primary"):
     else:
         # st.write(json_data)
         stock_data = []
-        st.write(element for element in json_data["results"])
+        st.write(element["vw"] for element in json_data["results"])
         # the_date_miliseconds = [element["t"] for element in stock_data]
         # human_readable_dates = [datetime.datetime.fromtimestamp(element / 1000).strftime('%Y-%m-%d %H:%M:%S') for element in the_date_miliseconds]
 
