@@ -3,6 +3,7 @@ from requests import get
 import datetime
 
 
+st.title("Welcome to the stock price displayer")
 dict_stocksTicker ={"Apple Inc.": "AAPL",
                     "Microsoft Corporation": "MSFT",
                     "Amazon.com, Inc.": "AMZN",
@@ -15,11 +16,15 @@ dict_stocksTicker ={"Apple Inc.": "AAPL",
                      "Visa Inc.": "V"}
 
 key = st.secrets["API_KEY"]
-st.title("Hello")
 today_date = datetime.datetime.now()
 genre = st.radio(
     "What stock price do you want to see?",
     [key for key in dict_stocksTicker.keys()])
+
+d = st.date_input("When should be the start date?", datetime.date(2019, 7, 6))
+st.write("The start date is", d)
+d = st.date_input("When should be the end date?", today_date.strftime('%Y-%m-%d'))
+st.write("The end date is", d)
 
 st.write("You selected:", genre)
 if st.button("Continue", type="primary"):
