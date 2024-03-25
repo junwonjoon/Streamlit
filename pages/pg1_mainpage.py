@@ -62,7 +62,7 @@ if st.button("Generate Table", type="primary"):
         df = pd.DataFrame(data)
         st.table(df)
         df.set_index('Time', inplace=True)
-        st.line_chart(df, x="Time", y="USD($)",color="#ef4423")
+        st.line_chart(data=df, x="Time", y="USD($)",color="#ef4423")
 
 
 
