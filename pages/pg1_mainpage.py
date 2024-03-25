@@ -38,7 +38,7 @@ st.write('Timespan multiplier is:', timespan_multiplier_select)
 
 if st.button("Continue", type="primary"):
     stocksTicker = dict_stocksTicker[genre]
-    multiplier = 1
+    multiplier = timespan_multiplier_select
     timespan = timespan_select
     from_date = start_date_select
     to_date = end_date_select
@@ -51,10 +51,10 @@ if st.button("Continue", type="primary"):
     else:
         # st.write(json_data)
         average_stock_price = [element["vw"] for element in json_data["results"]]
-        st.write(average_stock_price)
         the_date_miliseconds = [element["t"] for element in json_data["results"]]
         human_readable_date = [datetime.datetime.fromtimestamp(element / 1000).strftime('%Y-%m-%d') for element in the_date_miliseconds]
-        st.write(human_readable_date)
+        # st.write(average_stock_price)
+        # st.write(human_readable_date)
         st.table(dict(zip(human_readable_date,average_stock_price)))
 
 
