@@ -41,7 +41,8 @@ dict_stocksTicker ={"Apple Inc.": "AAPL",
                     "Walmart Inc.": "WMT",
                      "Visa Inc.": "V"}
 
-key = st.secrets["API_KEY"]
+# key = st.secrets["API_KEY"]
+key = "c4NLm5QgWNWDBWp530A_Ypnxc6PHmmtD"
 stocksTicker_select = st.radio(
     "What stock price do you want to see?",
     [key for key in dict_stocksTicker.keys()])
