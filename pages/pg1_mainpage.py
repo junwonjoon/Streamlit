@@ -14,12 +14,12 @@ dict_stocksTicker ={"Apple Inc.": "AAPL",
                     "Johnson & Johnson": "JNJ",
                     "Walmart Inc.": "WMT",
                      "Visa Inc.": "V"}
+
 key = st.secrets["API_KEY"]
 genre = st.radio(
     "What stock price do you want to see?",
     [key for key in dict_stocksTicker.keys()])
 
-st.header()
 start_date_select = st.date_input("When should be the start date?", datetime.date(2024, 1, 1))
 st.write("The start date is", start_date_select)
 
