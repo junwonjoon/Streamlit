@@ -20,10 +20,10 @@ genre = st.radio(
     "What stock price do you want to see?",
     [key for key in dict_stocksTicker.keys()])
 
-start_date_select = st.date_input("When should be the start date?", datetime.date(2024, 1, 1))
+start_date_select = st.date_input("When should be the start date?", datetime.date(2024, 1, 1), min_value= datetime.datetime.now() - datetime.timedelta(days=730))
 st.write("The start date is", start_date_select)
 
-end_date_select = st.date_input("When should be the end date?", datetime.datetime.now() - datetime.timedelta(days=1))
+end_date_select = st.date_input("When should be the end date?", datetime.datetime.now() - datetime.timedelta(days=1), max_value= datetime.datetime.now() - datetime.timedelta(days=1))
 st.write("The end date is", end_date_select)
 
 timespan_select = st.select_slider(
