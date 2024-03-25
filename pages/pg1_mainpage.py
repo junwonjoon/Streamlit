@@ -21,13 +21,10 @@ genre = st.radio(
     "What stock price do you want to see?",
     [key for key in dict_stocksTicker.keys()])
 
-
-
-
 st.write("You selected:", genre)
 
 if st.button("Continue", type="primary"):
-    stocksTicker = dict_stocksTicker["genre"]
+    stocksTicker = dict_stocksTicker[genre]
     multiplier = 1
     timespan = "week"
     from_date = "2024-01-01"
