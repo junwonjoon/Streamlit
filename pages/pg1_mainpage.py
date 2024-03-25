@@ -56,11 +56,12 @@ if st.button("Generate Table", type="primary"):
         # st.write(average_stock_price)
         # st.write(human_readable_date)
         data = {
-        'Time': human_readable_date,
+        'Time': pd.to_datetime(human_readable_date),
         f'Average Stock Price of the {timespan}': average_stock_price
         }
         df = pd.DataFrame(data)
         st.table(df)
+        df.set_index('Time', inplace=True)
         st.line_chart(df)
 
 
