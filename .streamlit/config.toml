@@ -1,0 +1,8 @@
+Streamlit/
+├── .streamlit/
+│   └── config.toml
+├── pages/
+│   └── pg1_singleSelectTable.py
+│   └── pg2_singleSelectChart.py
+│   └── pg3_multiSelectTableAndChart.py
+└── requirements.txt
