@@ -49,8 +49,8 @@ if st.button("Continue", type="primary"):
     elif json_data["status"] == "NOT_AUTHORIZED":
         st.write("Sorry, the range you have assigned contain too many steps! Please reduce the range of steps by increasing the multiplier or decrease the date difference")
     else:
-        st.write(json_data)
-        st.write([element for element in json_data["results"]])
+        # st.write(json_data)
+        st.write(element for element in json_data["results"])
 
 
 
