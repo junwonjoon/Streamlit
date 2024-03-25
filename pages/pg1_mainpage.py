@@ -50,10 +50,10 @@ if st.button("Continue", type="primary"):
         st.write("Sorry, the range you have assigned contain too many steps! Please reduce the range of steps by increasing the multiplier or decrease the date difference")
     else:
         # st.write(json_data)
-        stock_data = []
         st.write(element["vw"] for element in json_data["results"])
-        # the_date_miliseconds = [element["t"] for element in stock_data]
-        # human_readable_dates = [datetime.datetime.fromtimestamp(element / 1000).strftime('%Y-%m-%d %H:%M:%S') for element in the_date_miliseconds]
+        the_date_miliseconds = [element["vw"] for element in json_data["results"]]
+        human_readable_dates = [datetime.datetime.fromtimestamp(element / 1000).strftime('%Y-%m-%d %H:%M:%S') for element in the_date_miliseconds]
+        st.write(items for items in human_readable_dates)
 
 
 
