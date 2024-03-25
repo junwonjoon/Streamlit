@@ -35,7 +35,7 @@ st.write("The start date is", start_date_select)
 
 timespan_select = st.select_slider(
     'Select the timespan',
-    options=['second', 'minute', 'hour', 'day', 'week', 'month', 'quarter', 'year'],
+    options=['minute', 'hour', 'day', 'week', 'month', 'quarter', 'year'],
     value=('day'))
 st.write('You selected timespan as ', timespan_select)
 
