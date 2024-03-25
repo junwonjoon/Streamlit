@@ -21,10 +21,10 @@ genre = st.radio(
     "What stock price do you want to see?",
     [key for key in dict_stocksTicker.keys()])
 
-d = st.date_input("When should be the start date?", datetime.date(2019, 7, 6))
-st.write("The start date is", d)
-d = st.date_input("When should be the end date?", today_date.strftime('%Y-%m-%d'))
-st.write("The end date is", d)
+start_date = st.date_input("When should be the start date?", datetime.date(2019, 7, 6))
+st.write("The start date is", start_date)
+end_date = st.date_input("When should be the end date?", datetime.datetime.now())
+st.write("The end date is", end_date)
 
 st.write("You selected:", genre)
 if st.button("Continue", type="primary"):
