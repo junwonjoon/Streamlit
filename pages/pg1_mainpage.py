@@ -56,7 +56,6 @@ if st.button("Continue", type="primary"):
         human_readable_date = [datetime.datetime.fromtimestamp(element / 1000).strftime('%Y-%m-%d') for element in the_date_miliseconds]
         st.write(human_readable_date)
         st.table(dict(zip(human_readable_date,average_stock_price)))
-        st.chart(dict(zip(human_readable_date,average_stock_price)))
 
 
 
