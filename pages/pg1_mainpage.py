@@ -44,10 +44,10 @@ if st.button("Continue", type="primary"):
     to_date = end_date_select
 
     json_data = get(f"https://api.polygon.io/v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from_date}/{to_date}?apiKey={key}").json()
-    if json_data["status"] is "ERROR":
+    if json_data["status"] == "ERROR":
         st.write("Too many request were created, maximum request is 5 per minute, try again a minute later")
-    elif json_data["status"] is "NOT_AUTHORIZED":
-        st.write("Sorry this feature is not availiable to use")
+    elif json_data["status"] == "NOT_AUTHORIZED":
+        st.write("Sorry, the range you have assigned contain too many steps! Please reduce the range of steps by increasing the multiplier or decrease the date difference")
     else:
         st.write(json_data)
 
