@@ -54,7 +54,8 @@ if st.button("Continue", type="primary"):
         st.write(average_stock_price)
         the_date_miliseconds = [element["t"] for element in json_data["results"]]
         human_readable_date = [datetime.datetime.fromtimestamp(element / 1000).strftime('%Y-%m-%d') for element in the_date_miliseconds]
-        st.write(human_readable_date)
+        st.write(type(human_readable_date))
+
 
 
 
