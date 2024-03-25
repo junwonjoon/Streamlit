@@ -33,6 +33,7 @@ timespan_select = st.select_slider(
     options=['second', 'minute', 'hour', 'day', 'week', 'month', 'quarter', 'year'])
 st.write('You selected timespan as ', timespan_select)
 
+
 if st.button("Continue", type="primary"):
     stocksTicker = dict_stocksTicker[genre]
     multiplier = 1
