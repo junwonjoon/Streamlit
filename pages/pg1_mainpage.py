@@ -52,12 +52,12 @@ if st.button("Generate Table", type="primary"):
         # st.write(json_data)
         average_stock_price = [element["vw"] for element in json_data["results"]]
         the_date_miliseconds = [element["t"] for element in json_data["results"]]
-        human_readable_date = [datetime.datetime.fromtimestamp(element / 1000).strftime('%Y-%m-%d') for element in the_date_miliseconds]
+        human_readable_date = [datetime.datetime.fromtimestamp(element / 1000).strftime('%Y-%m-%d %H:%M:%S') for element in the_date_miliseconds]
         # st.write(average_stock_price)
         # st.write(human_readable_date)
         data = {
         'Date': human_readable_date,
-        'Average Stock Price of the Date': average_stock_price
+        f'Average Stock Price of the {timespan}': average_stock_price
         }
         df = pd.DataFrame(data)
         st.table(df)
