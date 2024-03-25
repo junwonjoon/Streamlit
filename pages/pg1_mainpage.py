@@ -24,7 +24,7 @@ genre = st.radio(
 start_date_select = st.date_input("When should be the start date?", datetime.date(2024, 1, 1))
 st.write("The start date is", start_date_select)
 
-end_date_select = st.date_input("When should be the end date?", datetime.datetime.now() - 1)
+end_date_select = st.date_input("When should be the end date?", datetime.datetime.now() - datetime.date(0, 0, 1))
 st.write("The end date is", end_date_select)
 
 
