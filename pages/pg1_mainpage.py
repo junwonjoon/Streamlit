@@ -10,7 +10,7 @@ dict_stocksTicker ={"Apple Inc.": "AAPL",
                     "Google LLC": "GOOGL",
                     "Facebook, Inc.": "FB",
                     "Tesla, Inc.": "TSLA",
-                    "Berkshire Hathaway Inc.": "BRK.A",
+                    "Berkshire Hathaway Inc.": "BRK.B",
                     "Johnson & Johnson": "JNJ",
                     "Walmart Inc.": "WMT",
                      "Visa Inc.": "V"}
